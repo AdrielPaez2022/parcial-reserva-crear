@@ -1,8 +1,11 @@
-package reserva.modelo;
+package model;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import reserva.exception.ReservaInvalidaException;
 import reserva.exception.ReservaYaCanceladaException;
+import reserva.modelo.EstadoReserva;
+import reserva.modelo.Reserva;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -23,7 +26,7 @@ class ReservaTest {
         assertEquals(email, reserva.getEmailContacto());
         assertEquals(fecha, reserva.getFecha());
         assertEquals(2, reserva.getCantidadPersonas());
-        assertEquals(EstadoReserva.ACTIVA, reserva.getEstado());
+        Assertions.assertEquals(EstadoReserva.ACTIVA, reserva.getEstado());
     }
 
     @Test

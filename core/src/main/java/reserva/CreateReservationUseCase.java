@@ -1,4 +1,4 @@
-package reserva.usecase;
+package reserva;
 
 import reserva.exception.PersistenceException;
 import reserva.exception.ReservationAlreadyExistsException;
