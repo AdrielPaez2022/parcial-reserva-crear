@@ -1,14 +1,12 @@
 package usecase;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Test;
 import reserva.exception.PersistenceException;
 import reserva.exception.ReservationAlreadyExistsException;
-import reserva.modelo.EstadoReserva;
 import reserva.modelo.Reserva;
 import reserva.output.ReservationRepository;
-import reserva.CreateReservationUseCase;
+import reserva.usecase.CreateReservationUseCase;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDate;
