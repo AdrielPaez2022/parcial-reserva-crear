@@ -2,6 +2,7 @@ package reserva;
 
 import reserva.exception.PersistenceException;
 import reserva.exception.ReservationAlreadyExistsException;
+import reserva.exception.RevervasObligatoriaException;
 import reserva.modelo.Reserva;
 import reserva.output.ReservationRepository;
 
@@ -13,7 +14,7 @@ public class CreateReservationUseCase {
 
     public CreateReservationUseCase(ReservationRepository reservationRepository) {
         if (reservationRepository == null) {
-            throw new IllegalArgumentException("El repositorio de reservas es obligatorio.");
+            throw new RevervasObligatoriaException("El repositorio de reservas es obligatorio.");
         }
         this.reservationRepository = reservationRepository;
     }

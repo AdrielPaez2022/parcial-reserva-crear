@@ -30,8 +30,7 @@ public class CreateReservationUseCaseTest {
     @Test
     public void register_success_returnReservation() {
         // Arrange
-        CreateReservationUseCase createReservationUseCase =
-                new CreateReservationUseCase(mockReservationRepository);
+        CreateReservationUseCase createReservationUseCase = new CreateReservationUseCase(mockReservationRepository);
         when(mockReservationRepository.existsActiveReservation(emailContacto, fecha)).thenReturn(false);
         when(mockReservationRepository.save(any(Reserva.class))).thenReturn(true);
 
@@ -48,13 +47,11 @@ public class CreateReservationUseCaseTest {
     @Test
     public void register_alreadyExists_ReservationAlreadyExistsException() {
         // Arrange
-        CreateReservationUseCase createReservationUseCase =
-                new CreateReservationUseCase(mockReservationRepository);
+        CreateReservationUseCase createReservationUseCase = new CreateReservationUseCase(mockReservationRepository);
         when(mockReservationRepository.existsActiveReservation(emailContacto, fecha)).thenReturn(true);
 
         // Act & Assert
-        assertThrows(ReservationAlreadyExistsException.class,
-                () -> createReservationUseCase.register(emailContacto, id, fecha, 3));
+        assertThrows(ReservationAlreadyExistsException.class, () -> createReservationUseCase.register(emailContacto, id, fecha, 3));
 
         verify(mockReservationRepository).existsActiveReservation(emailContacto, fecha);
         verify(mockReservationRepository, never()).save(any(Reserva.class));
